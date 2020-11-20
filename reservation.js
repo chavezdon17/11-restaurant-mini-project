@@ -1,3 +1,11 @@
+
+var newReservation = [{
+  customerName = "",
+  phoneNumber = "",
+  id = "",
+  email = "",
+}
+];
 class CustomerInfo {
   constructor(name, id, email) {
     this.customerName = name;
