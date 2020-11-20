@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <title>Open Tables </title>
 
-<!-- Compiled CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- Materialize -->
+<link type="text/css" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    media="screen,projection" />
 
 </head>
 
@@ -15,15 +16,15 @@
 
 <div class="container">
 
-    <div class="jumbotron">
-    <h1>Megans Restaurant</h1>
+    <div class="card-panel teal lighten-2">
+    <h1 class="row">Megan's Restaurant</h1>
     <hr>
-    <h2 class="text-center">Reservations and Waiting List</h2>
+    <h2 class="row">Reservations and Waiting List</h2>
     <br>
 
     <div class="text-center">
-        <a href="/reserve"><button type="button">Reservation</button></a>
-        <a href="/">Home</a>
+        <a href="/reserve"><button type="button" class="waves-effect waves-light lime accent-2 black-text btn">Reservation</button></a>
+        <a href="/" class="waves-effect waves-light lime accent-2 black-text btn">Home</a>
     </div>
     </div>
 
@@ -62,35 +63,5 @@
 
 	</div>
 
-<script type='text/javascript'>
-    $.ajax({
-        url: '/api',
-        method: 'GET'
-        }).done(function(response) {
-        console.log(response.reservations);
-        if (response) {
-            var tableSection = $('#tableSection');
-            var waitlistSection = $('#waitlistSection');
-            for (var i = 0; i < response.reservations.length; i++) {
-            var tableDiv = $('<div>').addClass('well');
-
-            var id = response.reservations[i].id;
-            tableDiv.append($('<h2>').html("<span class='label label-primary'>1</span>|"));
-            tableDiv.append($('<div>').append($('<h4>').text(id)));
-
-            tableSection.append(tableDiv);
-            }
-            for (var i = 0; i < response.waitlist.length; i++) {
-            var tableDiv = $('<div>').addClass('well');
-
-            var id = response.waitlist[i].id;
-            tableDiv.append($('<h2>').html("<span class='label label-primary'>1</span>|"));
-            tableDiv.append($('<div>').append($('<h4>').text(id)));
-
-            waitlistSection.append(tableDiv);
-            }
-        }
-        });
-</script>
 
 </body></html>
